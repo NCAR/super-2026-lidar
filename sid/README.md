@@ -49,9 +49,23 @@ predicting the disagreement from instrument-reported quality metrics.
 - Data paths, fill values, and matching tolerances are **constants at the top of each
   script** — set them for your environment.
 - Corrected pipelines match on **stored** wind variables with **nearest-gate** height
-  matching and **no interpolation** (see `equation/eqn_marshall/`).
+  matching and **no interpolation** (see `utils/match.py` and `equation/eqn_marshall/`).
+- Shared helpers live in `utils/` — import from there rather than re-copying.
 
 ## Repository layout
+
+### `utils/` — shared helpers
+Common functions used across all analysis folders (extracted from ~30 scripts that had
+duplicated them). Pure functions only — no plotting, no file writes.
+- `io.py` — NetCDF loading/decoding: `to_nan`, `get_var`, `mapr_epoch`, `lidar_epoch`,
+  `to_agl`, `site_altitude`, plus `MAPR_FILL` / `VAD_FILL`.
+- `winds.py` — wind-vector math (meteorological convention): `uv`, `met_dir`, `circ`,
+  `vector_dV`.
+- `match.py` — corrected profiler/lidar gate matching: `nearest_scan`, `match_profile`
+  (nearest gate, **no interpolation** — see the note in the file).
+- `stats.py` — `binned_median`, `day_split`, `mae`, `day_bootstrap_ols` (grouped/blocked
+  by day to respect autocorrelation).
+- See `utils/README.md` for the import pattern (flat repo, path-relative).
 
 ### `equation/` — equation discovery (the core result)
 - `vel_snr.py` — `|ΔV|` vs. SNR exploration (density, binned medians, linearization);
@@ -102,4 +116,5 @@ final pipeline. Retained for provenance.
 ## Attribution
 
 Analysis code by Sid Guha, NCAR/EOL SUPER 2026. Instruments and campaign data courtesy of the
-NCAR Earth Observing Laboratory (In-situ Sensing Facility). Mentored by Bill Brown.
+NCAR Earth Observing Laboratory (In-situ Sensing Facility). Mentored by William Brown.
+
