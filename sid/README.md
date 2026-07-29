@@ -1,6 +1,6 @@
 # SUPER 2026 — Radar Wind Profiler vs. Doppler Lidar Intercomparison
 
-Analysis code from the **NCAR/EOL SUPER 2026** internship (Sid Guha). The project
+Analysis code from the **NCAR/EOL SUPER 2026** internship (Siddha Guha). The project
 compares horizontal winds from a **449 MHz Modular Wind Profiler (MAPR)** against a
 **Windcube Doppler lidar (VAD retrievals)** across two field campaigns:
 
@@ -115,6 +115,6 @@ final pipeline. Retained for provenance.
 
 ## Attribution
 
-Analysis code by Sid Guha, NCAR/EOL SUPER 2026. Instruments and campaign data courtesy of the
-NCAR Earth Observing Laboratory (In-situ Sensing Facility). Mentored by William Brown.
+Analysis code by Siddha Guha, NCAR/EOL SUPER 2026. Instruments and campaign data courtesy of the
+NCAR Earth Observing Laboratory (In-situ Sensing Facility). Mentored by William Brown, Isabel Suhr, Mya Sears and Jacquie Witte
 
