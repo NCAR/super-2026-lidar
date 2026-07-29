@@ -113,6 +113,29 @@ Exploratory analyses at hourly, daily, and monthly resolution (profiler/lidar an
 agreement, altitude-resolved comparisons, parameter-stratified histograms) that informed the
 final pipeline. Retained for provenance.
 
+## Next steps
+
+The core contribution here is a reusable pipeline — screen candidate predictors,
+identify the functional form, forward-select on held-out days, and fit with honest
+uncertainty — not a single equation. Several directions build on it:
+
+- **Apples-to-apples re-test at Marshall.** Re-run LOTOS with matched averaging
+  (30-min profiler consensus vs. a 30-min lidar consensus product) to confirm the
+  sampling-mismatch floor collapses and spectral width's predictive skill recovers.
+- **Independent reference.** Bring in radiosondes or ERA5 as a third, independent
+  estimate so the analysis no longer treats the lidar as ground truth, and
+  disagreement can be attributed to a specific instrument.
+- **More parameters and instruments.** Apply the same screen → select → validate
+  workflow to additional quality metrics, other profiler products (e.g. RASS,
+  Doppler moment files), and other instrument pairs (profiler vs. sonde, lidar vs.
+  sonde) to build a broader library of validated QC relations.
+- **More campaigns and datasets.** Extend the comparison to further field campaigns
+  and sites to test how well the spectral-width relation generalizes across
+  climates, seasons, and instrument configurations.
+- **Mechanism of broadening.** Stratify the disagreement by hour and height and use
+  the Doppler moment data to separate convective, nocturnal, and precipitation-driven
+  spectral broadening.
+
 ## Attribution
 
 Analysis code by Siddha Guha, NCAR/EOL SUPER 2026. Instruments and campaign data courtesy of the
